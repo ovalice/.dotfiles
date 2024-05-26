@@ -1,5 +1,6 @@
 return {
     'neovim/nvim-lspconfig',
+    event = "InsertEnter",
     dependencies = {
         'williamboman/mason.nvim',
         'williamboman/mason-lspconfig.nvim',
@@ -10,8 +11,8 @@ return {
         'L3MON4D3/LuaSnip',
         'saadparwaiz1/cmp_luasnip',
         'j-hui/fidget.nvim',
+        'windwp/nvim-autopairs',
     },
-
     -- NPM is required to install several LSPs
     --
     -- It's important that LSP plugins are set up in order:
@@ -35,6 +36,7 @@ return {
         require('mason-lspconfig').setup({
             ensure_installed = {
                 'bashls',                   --
+                'csharp_ls',                -- Requires dotnet-sdk
                 'cssls',                    --
                 'dockerls',                 --
                 'eslint',                   --
@@ -92,6 +94,12 @@ return {
                 completeopt = 'menu,menuone'
             }
         })
+
+        local cmp_autopairs = require('nvim-autopairs.completion.cmp')
+        cmp.event:on(
+            'confirm_done',
+            cmp_autopairs.on_confirm_done()
+            )
 
         vim.api.nvim_create_autocmd('LspAttach', {
             group = vim.api.nvim_create_augroup('UserLspConfig', {}),
