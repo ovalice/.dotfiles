@@ -1,17 +1,9 @@
 return {
     'neovim/nvim-lspconfig',
-    event = "InsertEnter",
     dependencies = {
         'williamboman/mason.nvim',
         'williamboman/mason-lspconfig.nvim',
-        'hrsh7th/cmp-nvim-lsp',
-        'hrsh7th/cmp-buffer',
-        'hrsh7th/cmp-path',
-        'hrsh7th/nvim-cmp',
-        'L3MON4D3/LuaSnip',
-        'saadparwaiz1/cmp_luasnip',
         'j-hui/fidget.nvim',
-        'windwp/nvim-autopairs',
     },
     -- NPM is required to install several LSPs
     --
@@ -21,7 +13,7 @@ return {
         local lsp_capabilities = vim.lsp.protocol.make_client_capabilities()
         lsp_capabilities.textDocument.completion.completionItem.snippetSupport = true
 
-        local cmp = require('cmp')
+
         local cmp_lsp = require('cmp_nvim_lsp')
         local cmp_capabilities = cmp_lsp.default_capabilities()
 
@@ -69,37 +61,6 @@ return {
                 end,
             }
         })
-
-        cmp.setup({
-            snippet = {
-                expand = function(args)
-                    require('luasnip').lsp_expand(args.body)
-                end,
-            },
-            sources = cmp.config.sources({
-                { name = 'nvim_lsp' },
-                { name = 'luasnip' },
-            }, {
-                { name = 'buffer' },
-                { name = 'path' },
-            }),
-            mapping = cmp.mapping.preset.insert({
-                ['<C-p>'] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
-                ['<C-n>'] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
-                ['<C-space>'] = cmp.mapping.complete(), -- Mapping doesn't work on Windows because of this I think https://github.com/libuv/libuv/issues/1958 (otherwise use an nvim GUI client instead)
-                ['<C-e>'] = cmp.mapping.abort(),
-                ['<CR>'] = cmp.mapping.confirm({ select = true }),
-            }),
-            completion = {
-                completeopt = 'menu,menuone'
-            }
-        })
-
-        local cmp_autopairs = require('nvim-autopairs.completion.cmp')
-        cmp.event:on(
-            'confirm_done',
-            cmp_autopairs.on_confirm_done()
-            )
 
         vim.api.nvim_create_autocmd('LspAttach', {
             group = vim.api.nvim_create_augroup('UserLspConfig', {}),
