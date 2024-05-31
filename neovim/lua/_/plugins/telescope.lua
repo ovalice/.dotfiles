@@ -10,14 +10,10 @@ return {
             }
         },
         config = function()
-            local ts = require('telescope')
-
-            ts.setup({});
+            require('telescope').load_extension('fzf')
 
             local builtin = require('telescope.builtin')
             vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
-
-            ts.load_extension('fzf')
         end
     }
 }
