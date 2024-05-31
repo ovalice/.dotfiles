@@ -6,6 +6,7 @@ return {
         'L3MON4D3/LuaSnip',
         'saadparwaiz1/cmp_luasnip',
         'hrsh7th/cmp-nvim-lsp',
+        'hrsh7th/cmp-cmdline',
         {
             'windwp/nvim-autopairs',
             event = "InsertEnter",
@@ -38,6 +39,27 @@ return {
             completion = {
                 completeopt = 'menu,menuone' -- Automatically select first item in completion list
             }
+        })
+
+        cmp.setup.cmdline('/', {
+            mapping = cmp.mapping.preset.cmdline(),
+            sources = {
+                { name = 'buffer' }
+            }
+        })
+
+        cmp.setup.cmdline(':', {
+            mapping = cmp.mapping.preset.cmdline(),
+            sources = cmp.config.sources({
+                { name = 'path' }
+            }, {
+                {
+                    name = 'cmdline',
+                    option = {
+                        ignore_cmds = { 'Man', '!' }
+                    }
+                }
+            })
         })
 
         local cmp_autopairs = require('nvim-autopairs.completion.cmp')
