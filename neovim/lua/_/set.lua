@@ -22,7 +22,7 @@ vim.opt.termguicolors = true
 vim.opt.scrolloff = 8
 vim.opt.signcolumn = 'yes'
 
-vim.opt.colorcolumn = table.concat(vim.fn.range(160, 999), ",")
+vim.opt.colorcolumn = table.concat(vim.fn.range(160, 999), ',')
 
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
