@@ -26,3 +26,8 @@ vim.opt.colorcolumn = table.concat(vim.fn.range(160, 999), ',')
 
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
+
+vim.opt.swapfile = false
+vim.opt.backup = false
+vim.opt.undodir = vim.fn.stdpath('data') .. '/undodir'
+vim.opt.undofile = true
