@@ -7,6 +7,10 @@ return {
                     file_pattern = { '.env', },
                     cloak_pattern = '=.+',
                 },
+                {
+                    file_pattern = { 'secrets.json' },
+                    cloak_pattern = ':.+'
+                }
             }
         })
     end
