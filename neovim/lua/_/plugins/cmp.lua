@@ -49,7 +49,17 @@ return {
         })
 
         cmp.setup.cmdline(':', {
-            mapping = cmp.mapping.preset.cmdline(),
+            mapping = cmp.mapping.preset.cmdline({
+                ['<CR>'] = {
+                    -- Prevent command from running when pressing <CR> for completion while cmp is visible
+                    c = function(default)
+                        if cmp.visible() then
+                            return cmp.confirm({ select = true })
+                        end
+                        default()
+                    end,
+                }
+            }),
             sources = cmp.config.sources({
                 { name = 'path' }
             }, {
