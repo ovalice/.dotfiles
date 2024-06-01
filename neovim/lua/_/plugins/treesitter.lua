@@ -10,6 +10,7 @@ return {
                 'css',
                 'dockerfile',
                 'html',
+                'http',
                 'javascript', 
                 'jsdoc',
                 'json',
