@@ -1,4 +1,5 @@
 require('_.set')
 require('_.keymaps')
 require('_.autocmd')
+require('_.cmd')
 require('_.lazy')

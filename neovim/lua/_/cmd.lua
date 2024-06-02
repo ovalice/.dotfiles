@@ -1,0 +1,1 @@
+vim.api.nvim_create_user_command('ClearCR', function() vim.api.nvim_command('%s/\r//g') end, {})
