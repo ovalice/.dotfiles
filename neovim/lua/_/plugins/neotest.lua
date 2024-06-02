@@ -38,7 +38,7 @@ return {
         vim.keymap.set('n', '<leader>td',  function() neotest.run.run(vim.fn.expand('%'))      end)
         vim.keymap.set('n', '<leader>ts',  function() neotest.run.stop()                       end)
         vim.keymap.set('n', '<leader>tt',  function() neotest.summary.toggle()                 end)
-        vim.keymap.set('n', '<leader>tw',  function() neotest.run.toggle()                     end)
+        vim.keymap.set('n', '<leader>tw',  function() neotest.watch.toggle()                   end)
         vim.keymap.set('n', '<leader>tfw', function() neotest.watch.toggle(vim.fn.expand("%")) end)
         
         vim.keymap.set('n', '<leader>ta', function() 
