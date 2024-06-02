@@ -41,23 +41,29 @@ return {
                 {},
                 lsp_capabilities,
                 cmp_capabilities)
+
+            local ensure_installed = {
+                'bashls',                   --
+                'cssls',                    --
+                'dockerls',                 --
+                'eslint',                   --
+                'html',                     --
+                'jsonls',                   --
+                'lua_ls',                   --
+                'marksman',                 --
+                'svelte',                   -- Requires typescript-svelte-plugin (see https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#svelte)
+                'tsserver',                 -- Requires "npm i -g typescript"
+                'yamlls'                    --
+            }
+
+            if vim.fn.has('win32') == 1 then
+                table.insert(ensure_installed, 'powershell_es')
+            end
     
             require('fidget').setup({})
             require('mason').setup()
             require('mason-lspconfig').setup({
-                ensure_installed = {
-                    'bashls',                   --
-                    'cssls',                    --
-                    'dockerls',                 --
-                    'eslint',                   --
-                    'html',                     --
-                    'jsonls',                   --
-                    'lua_ls',                   --
-                    'marksman',                 --
-                    'svelte',                   -- Requires typescript-svelte-plugin (see https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#svelte)
-                    'tsserver',                 -- Requires "npm i -g typescript"
-                    'yamlls'                    --
-                },
+                ensure_installed = ensure_installed,
                 handlers = {
                     function (server_name)
                         require('lspconfig')[server_name].setup({
@@ -77,6 +83,10 @@ return {
                             }
                         })
                     end,
+
+                    ['powershell_es'] = function()
+                        shell = 'powershell.exe'
+                    end
                 }
             })
     
