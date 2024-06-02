@@ -1,0 +1,63 @@
+return {
+    'sindrets/diffview.nvim',
+    config = function()
+        require('diffview').setup({
+            use_icons = false,
+            signs = {
+                fold_open = '▼',
+                fold_closed = '►'
+            },
+            default = {
+                layout = 'diff2_horizontal'
+            },
+            merge_tool = {
+                layout = 'diff3_horizontal'
+            },
+            file_history = {
+                layout = 'diff2_horizontal'
+            }
+            -- keymaps = {
+            --     view = {
+            --         { "n", "[x",          actions.prev_conflict,                  { desc = "In the merge-tool: jump to the previous conflict" } },
+            --         { "n", "]x",          actions.next_conflict,                  { desc = "In the merge-tool: jump to the next conflict" } },
+            --         { "n", "<leader>co",  actions.conflict_choose("ours"),        { desc = "Choose the OURS version of a conflict" } },
+            --         { "n", "<leader>ct",  actions.conflict_choose("theirs"),      { desc = "Choose the THEIRS version of a conflict" } },
+            --         { "n", "<leader>cb",  actions.conflict_choose("base"),        { desc = "Choose the BASE version of a conflict" } },
+            --         { "n", "<leader>ca",  actions.conflict_choose("all"),         { desc = "Choose all the versions of a conflict" } },
+            --         { "n", "dx",          actions.conflict_choose("none"),        { desc = "Delete the conflict region" } }
+            --     },
+            --     diff4 = {
+            --         { { "n", "x" }, "1do",  actions.diffget("base"),            { desc = "Obtain the diff hunk from the BASE version of the file" } },
+            --         { { "n", "x" }, "2do",  actions.diffget("ours"),            { desc = "Obtain the diff hunk from the OURS version of the file" } },
+            --         { { "n", "x" }, "3do",  actions.diffget("theirs"),          { desc = "Obtain the diff hunk from the THEIRS version of the file" } },
+            --         { "n",          "g?",   actions.help({ "view", "diff4" }),  { desc = "Open the help panel" } },
+            --     },
+            -- }
+        })
+
+        vim.keymap.set('n', '<leader>gdt', function()
+            if vim.bo.ft == 'DiffviewFiles' then
+                vim.cmd('DiffviewClose')
+            else
+                vim.cmd('DiffviewOpen')
+            end
+        end)
+
+        vim.keymap.set('n', '<leader>gdr', function()
+            if vim.bo.ft == 'DiffviewFiles' then
+                vim.cmd('DiffviewClose')
+            end
+
+            local rev = vim.fn.input('Revision > ')
+            vim.cmd('DiffviewOpen ' .. rev)
+        end)
+
+        vim.keymap.set('n', '<leader>gfh', function()
+            if vim.bo.ft == 'DiffviewFileHistory' then
+                vim.cmd('DiffviewClose')
+            else
+                vim.cmd('DiffviewFileHistory')
+            end
+        end)
+    end
+}
