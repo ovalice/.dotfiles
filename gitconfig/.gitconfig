@@ -1,0 +1,28 @@
+[user]
+    name = Stan Martens
+    email = 31350208+ovalice@users.noreply.github.com
+
+[alias]
+    pf = push --force-with-lease
+
+[merge]
+    tool = nvim
+    conflictstyle = diff3
+
+[mergetool "nvim"]
+    cmd = nvim -d $LOCAL $BASE $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
+
+[core]
+    ; Set to 'true' on Windows
+    autoclrf = input
+    excludesFile = ~/.gitignore
+    attributesFile = ~/.gitattributes
+
+[init]
+    defaultBranch = master
+
+[pull]
+    rebase = true
+
+[push]
+    autoSetupRemote = true
