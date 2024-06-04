@@ -20,6 +20,8 @@ set colorcolumn=160
 set noignorecase
 set smartcase
 
+set visualbell
+
 " --- Enable IdeaVim plugins https://jb.gg/ideavim-plugins
 
 Plug 'preservim/nerdtree'
