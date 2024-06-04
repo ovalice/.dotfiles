@@ -1,0 +1,84 @@
+" .ideavimrc is a configuration file for IdeaVim plugin. It uses
+"   the same commands as the original .vimrc configuration.
+" You can find a list of commands here: https://jb.gg/h38q75
+" Find more examples here: https://jb.gg/share-ideavimrc
+
+set number
+set relativenumber
+
+set nohlsearch
+set incsearch
+
+set nowrap
+
+set nowrapscan
+
+set scrolloff=8
+
+set colorcolumn=160
+
+set noignorecase
+set smartcase
+
+" --- Enable IdeaVim plugins https://jb.gg/ideavim-plugins
+
+Plug 'preservim/nerdtree'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-commentary'
+Plug 'machakann/vim-highlightedyank'
+
+"" -- Map IDE actions to IdeaVim -- https://jb.gg/abva4t
+let mapleader = ' '
+
+nnoremap  <C-d>         <C-d>zz
+nnoremap  <C-u>         <C-u>zz
+nnoremap  <C-f>         <C-f>zz
+nnoremap  <C-b>         <C-b>zz
+nnoremap  N             Nzzzv
+nnoremap  n             nzzzv
+
+nnoremap  <leader>o     o<Esc>k
+nnoremap  <leader>O     O<Esc>j
+
+map       gD            <Action>(GotoDeclarationOnly)
+map       gd            <Action>(GotoDeclarationOnly)   "Go to definition doesn't seem to exist
+map       K             <Action>(QuickImplementations)
+map       gi            <Action>(ReSharperGotoImplementation)
+map       <C-h>         <Action>(QuickJavaDoc)
+map       <leader>rn    <Action>(RenameElement)
+map       <leader>ca    <Action>(ShowIntentionActions)
+vmap      <leader>ca    <Action>(ShowIntentionActions)
+map       gr            <Action>(ShowUsages)
+map       <leader>cc    <Action>(ReformatCode)
+map       gf            <Action>(MethodDown)
+map       gb            <Action>(MethodUp)
+
+map       <leader>ff    <Action>(GotoFile)
+map       <leader>fw    <Action>(FindInPath)
+map       <leader>fs    <Action>(GotoSymbol)
+
+map       <leader>rr    <Action>(Run)
+map       <leader>rs    <Action>(Stop)
+
+map       <leader>ds    <Action>(Debug)
+map       <leader>dbt   <Action>(ToggleLineBreakpoint)
+map       <leader>dc    <Action>(Resume)
+map       <leader>dsi   <Action>(StepInto)
+map       <leader>dso   <Action>(StepOver)
+map       <leader>dsr   <Action>(StepOut)
+
+map       <leader>bp    <Action>(BuildCurrentProject)
+map       <leader>ba    <Action>(BuildWholeSolutionAction)
+map       <leader>bc    <Action>(CleanSolutionAction)
+
+map       <leader>tn    <Action>(RiderUnitTestRunContextAction)
+map       <leader>tdn   <Action>(RiderUnitTestDebugContextAction)
+map       <leader>ts    <Action>(RiderUnitTestSessionAbortAction)
+map       <leader>tf    <Action>(RiderUnitTestSessionRerunFailedTestsAction)
+map       <leader>ta    <Action>(RiderUnitTestRunSolutionAction)
+
+map       <leader>;     <Action>(HideAllWindows)
+map       <leader>xq    <Action>(ActivateProblemsViewToolWindow)
+map       <leader>wt    <Action>(ActivateTerminalToolWindow)
+nnoremap  <leader>nt    :NERDTreeToggle<CR>
+nnoremap  <leader>ne    :NERDTreeFocus<CR>
