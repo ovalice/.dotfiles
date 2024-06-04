@@ -79,8 +79,9 @@ map       <leader>ts    <Action>(RiderUnitTestSessionAbortAction)
 map       <leader>tf    <Action>(RiderUnitTestSessionRerunFailedTestsAction)
 map       <leader>ta    <Action>(RiderUnitTestRunSolutionAction)
 
-map       <leader>;     <Action>(HideAllWindows)
+map       <leader>;     <Action>(HideAllWindows) "TODO: How much extra does this do compared to HideActiveWindow?
 map       <leader>xq    <Action>(ActivateProblemsViewToolWindow)
+map       <leader>ttw   <Action>(ActivateUnitTestsToolWindow)
 map       <leader>wt    <Action>(ActivateTerminalToolWindow)
 map       <leader>wb    <Action>(ActivateBuildToolWindow)
 map       <leader>wp    <Action>(ActivateNuGetToolWindow)
