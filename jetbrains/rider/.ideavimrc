@@ -84,3 +84,5 @@ map       <leader>xq    <Action>(ActivateProblemsViewToolWindow)
 map       <leader>wt    <Action>(ActivateTerminalToolWindow)
 nnoremap  <leader>nt    :NERDTreeToggle<CR>
 nnoremap  <leader>ne    :NERDTreeFocus<CR>
+
+map       <leader>qq    <Action>(Exit)
