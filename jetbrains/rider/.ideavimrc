@@ -43,7 +43,8 @@ nnoremap  <leader>o     o<Esc>k
 nnoremap  <leader>O     O<Esc>j
 
 map       gD            <Action>(GotoDeclarationOnly)
-map       gd            <Action>(GotoDeclarationOnly)   "Go to definition doesn't seem to exist
+"Go to definition doesn't seem to exist
+map       gd            <Action>(GotoDeclarationOnly)
 map       K             <Action>(QuickImplementations)
 map       gi            <Action>(ReSharperGotoImplementation)
 map       <C-h>         <Action>(QuickJavaDoc)
@@ -79,7 +80,8 @@ map       <leader>ts    <Action>(RiderUnitTestSessionAbortAction)
 map       <leader>tf    <Action>(RiderUnitTestSessionRerunFailedTestsAction)
 map       <leader>ta    <Action>(RiderUnitTestRunSolutionAction)
 
-map       <leader>;     <Action>(HideAllWindows) "TODO: How much extra does this do compared to HideActiveWindow?
+"TODO: How much extra does this do compared to HideActiveWindow?
+map       <leader>;     <Action>(HideAllWindows)
 map       <leader>xq    <Action>(ActivateProblemsViewToolWindow)
 map       <leader>ttw   <Action>(ActivateUnitTestsToolWindow)
 map       <leader>wt    <Action>(ActivateTerminalToolWindow)
