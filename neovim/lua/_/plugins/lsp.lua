@@ -61,7 +61,6 @@ return {
                 table.insert(ensure_installed, 'powershell_es')
             end
 
-            require('fidget').setup({})
             require('mason').setup()
             require('mason-lspconfig').setup({
                 ensure_installed = ensure_installed,
