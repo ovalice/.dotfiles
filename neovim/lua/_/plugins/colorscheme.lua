@@ -1,11 +1,19 @@
 return {
+    -- {
+    --     'rebelot/kanagawa.nvim',
+    --     lazy = false,
+    --     priority = 1000,
+    --     config = function()
+    --         vim.cmd('colorscheme kanagawa-dragon')
+    --         vim.cmd('hi ColorColumn guibg=#101010')
+    --     end
+    -- },
     {
-        'rebelot/kanagawa.nvim',
+        'dasupradyumna/midnight.nvim',
         lazy = false,
-        priority = 1000, -- Ensure it loads first
+        priority = 1000,
         config = function()
-            vim.cmd('colorscheme kanagawa-dragon')
-            vim.cmd('hi ColorColumn guibg=#101010')
+            vim.cmd('colorscheme midnight')
         end
     },
     {
@@ -19,5 +27,5 @@ return {
                 }
             })
         end
-    }
+    },
 }
