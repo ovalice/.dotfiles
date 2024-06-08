@@ -18,6 +18,24 @@ $decorativeLine = '----------------------------------'
 
 
 
+Write-Host 'Installing/updating useful tooling.'
+Write-Host $decorativeLine
+
+winget install -e --id Microsoft.PowerShell -i
+winget install -e --id CoreyButler.NVMforWindows     # nvim dependency (LSPs)
+winget install -e --id 7zip.7zip                     # nvim dependency (Mason)
+winget install -e --id=BurntSushi.ripgrep.MSVC       # nvim dependency (Telescope)
+winget install -e --id=sharkdp.fd                    # nvim dependency (Telescope)
+
+nvm install lts
+nvm use lts
+
+Write-Host ''
+Write-Host 'Finished installing/updating tooling.'
+Write-Host ''
+
+
+
 Write-Host 'Installing InconsolotaGo Nerd Font.'
 Write-Host $decorativeLine
 
