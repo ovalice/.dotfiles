@@ -40,21 +40,21 @@ Write-Host ''
 
 
 
-Write-Host 'Installing InconsolotaGo Nerd Font.'
+Write-Host 'Installing Fira Code Nerd Font.'
 Write-Host $decorativeLine
 
-$archivePath = "$home\AppData\Local\Temp\InconsolataGo.zip"
-$extractPath = "$home\AppData\Local\Temp\InconsolotaGo"
+$archivePath = "$home\AppData\Local\Temp\FiraCode.zip"
+$extractPath = "$home\AppData\Local\Temp\FiraCode"
 $fontsPath = "$home\AppData\Local\Microsoft\Windows\Fonts"
 
-$allFontFilesInstalled = (Get-ChildItem -Path "$fontsPath\InconsolataGoNerdFont*").Count -ge 6
+$allFontFilesInstalled = (Get-ChildItem -Path "$fontsPath\FiraCodeNerdFont*").Count -ge 18
 
 if ($allFontFilesInstalled) {
-    Write-Host 'InconsolotaGo Nerd Font is already installed.'
+    Write-Host 'Fira Code is already installed.'
 }
 else {
     try {
-        Invoke-WebRequest -Uri 'https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/InconsolataGo.zip' -OutFile $archivePath
+        Invoke-WebRequest -Uri 'https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/FiraCode.zip' -OutFile $archivePath
         Expand-Archive -Path $archivePath -DestinationPath $extractPath -Force
         
         Get-ChildItem -Path $extractPath -Filter '*.ttf' | ForEach-Object {
@@ -69,7 +69,7 @@ else {
         }
     
         Write-Host ''
-        Write-Host 'InconsolotaGo Nerd Font has been fully installed.'
+        Write-Host 'Fira Code has been fully installed.'
     }
     finally {
         Remove-Item -Path $archivePath -Force -ErrorAction SilentlyContinue
