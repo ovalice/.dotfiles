@@ -2,7 +2,7 @@
 
 $ErrorActionPreference = 'Stop'
 
-Write-Host 'Warning: This script will overwrite existing dotfiles.'
+Write-Host 'Warning: This script will overwrite existing dotfiles and can delete unrelated files when left in directories for to be installed tools.'
 while ($confirmation -ne 'y')
 {
     if ($confirmation -eq 'n') {
@@ -37,3 +37,14 @@ $localGitConfig | Out-File -FilePath "$home\.local.gitconfig" -Encoding utf8 -Fo
 Write-Host ".local.gitconfig has been installed under $home."
 
 Write-Host ''
+
+Write-Host 'Configuring Neovim.'
+Write-Host $decorativeLine
+
+Remove-Item -Path "$home\AppData\Local\nvim" -Recurse -Force
+New-Item -ItemType SymbolicLink -Target "$dotfilesPath\neovim" -Path "$home\AppData\Local\nvim" -Force | Out-Null
+Write-Host "Neovim config has been placed under $home\AppData\Local\nvim."
+
+Write-Host ''
+
+Write-Host 'Done.'
