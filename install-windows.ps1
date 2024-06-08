@@ -21,11 +21,15 @@ $decorativeLine = '----------------------------------'
 Write-Host 'Installing/updating useful tooling.'
 Write-Host $decorativeLine
 
-winget install -e --id Microsoft.PowerShell -i
+winget install -e --id Microsoft.PowerShell
+winget install -e --id=JanDeDobbeleer.OhMyPosh
+winget install -e --id=Neovim.Neovim -v '0.10.0'
 winget install -e --id CoreyButler.NVMforWindows     # nvim dependency (LSPs)
 winget install -e --id 7zip.7zip                     # nvim dependency (Mason)
 winget install -e --id=BurntSushi.ripgrep.MSVC       # nvim dependency (Telescope)
 winget install -e --id=sharkdp.fd                    # nvim dependency (Telescope)
+
+$env:Path = [System.Environment]::GetEnvironmentVariable('Path', 'Machine') + ';' + [System.Environment]::GetEnvironmentVariable('Path', 'User')
 
 nvm install lts
 nvm use lts
@@ -90,13 +94,26 @@ $localGitConfig = @"
 
 Write-Host ''
 
-
-
 New-Item -ItemType SymbolicLink -Target "$dotfilesPath\git\.windows.gitconfig" -Path "$home\.gitconfig" -Force | Out-Null
 Write-Host ".gitconfig has been placed under $home."
 
 $localGitConfig | Out-File -FilePath "$home\.local.gitconfig" -Encoding utf8 -Force
 Write-Host ".local.gitconfig has been placed under $home."
+
+Write-Host ''
+
+
+
+Write-Host 'Configuring Powershell.'
+Write-Host $decorativeLine
+
+New-Item -ItemType SymbolicLink `
+    -Target "$dotfilesPath\powershell\Microsoft.Powershell_profile.ps1" `
+    -Path $PROFILE `
+    -Force `
+    | Out-Null
+
+Write-Host "Microsoft.Powershell_profile.ps1 has been placed under $PROFILE."
 
 Write-Host ''
 
@@ -113,4 +130,5 @@ Write-Host ''
 
 
 
-Write-Host 'Done.'
+Write-Host 'Done!'
+Write-Host 'You should probably verify whether some stuff requires antivirus exclusions (OhMyPosh).'
