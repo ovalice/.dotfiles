@@ -1,6 +1,5 @@
-[user]
-    name = Stan Martens
-    email = 31350208+ovalice@users.noreply.github.com
+[include]
+    path = .local.gitconfig
 
 [alias]
     pf = push --force-with-lease
@@ -13,8 +12,8 @@
     cmd = nvim -d $LOCAL $BASE $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
 
 [core]
-    ; Set to 'true' on Windows
     autoclrf = input
+    editor = nvim
     excludesFile = ~/.gitignore
     attributesFile = ~/.gitattributes
 
