@@ -2,6 +2,18 @@
 
 $ErrorActionPreference = 'Stop'
 
+Write-Host 'Warning: This script will overwrite existing dotfiles.'
+while ($confirmation -ne 'y')
+{
+    if ($confirmation -eq 'n') {
+        Write-Host 'Aborting.'
+        exit
+    }
+
+    $confirmation = Read-Host 'Proceed? [y/n]'
+}
+Write-Host ''
+
 $dotfilesPath = Split-Path -Parent $PSCommandPath
 $decorativeLine = '----------------------------------'
 
