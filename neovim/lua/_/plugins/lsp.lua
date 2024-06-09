@@ -101,27 +101,4 @@ return {
             })
         end
     },
-    {
-        -- Required to run :CSInstallRoslyn after.
-        -- Try https://github.com/jmederosalvarado/roslyn.nvim/issues/18#issuecomment-1864605065 if ':CSInstallRoslyn' doesn't work.
-        'jmederosalvarado/roslyn.nvim',
-        config = function()
-            local lsp_capabilities = vim.lsp.protocol.make_client_capabilities()
-            lsp_capabilities.textDocument.completion.completionItem.snippetSupport = true
-
-            local cmp_lsp = require('cmp_nvim_lsp')
-            local cmp_capabilities = cmp_lsp.default_capabilities()
-
-            local capabilities = vim.tbl_deep_extend(
-                'force',
-                {},
-                lsp_capabilities,
-                cmp_capabilities)
-
-            require('roslyn').setup({
-                on_attach = on_lsp_attach,
-                capabilities = capabilities
-            })
-        end
-    }
 }
