@@ -92,3 +92,4 @@ echo ''
 
 
 echo 'Done!'
+echo 'Make sure to start a new shell to load the new config.'
