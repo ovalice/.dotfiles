@@ -27,7 +27,7 @@ $env:Path = [System.Environment]::GetEnvironmentVariable('Path', 'Machine') + ';
 choco install -y powershell-core
 choco install -y oh-my-posh                                          # I'll remove this when I finally move over to Windows 11
 choco install -y microsoft-windows-terminal
-winget install -e --interactive --id Neovim.Neovim -v '0.10.0'
+winget install -e --id Neovim.Neovim -v '0.10.0'
 choco install -y nvm                                                 # nvim dependency (LSPs)
 choco install -y 7zip.install                                        # nvim dependency (Mason)
 choco install -y ripgrep                                             # nvim dependency (Telescope)
@@ -52,9 +52,8 @@ $archivePath = "$home\AppData\Local\Temp\FiraCode.zip"
 $extractPath = "$home\AppData\Local\Temp\FiraCode"
 $fontsPath = "$home\AppData\Local\Microsoft\Windows\Fonts"
 
+New-Item -ItemType Directory -Path $fontsPath -Force | Out-Null   # Doesn't always exist, e.g. when user has not installed fonts yet.
 $allFontFilesInstalled = (Get-ChildItem -Path "$fontsPath\FiraCodeNerdFont*").Count -ge 18
-
-New-Item -ItemType Directory -Path $fontsPath -Force | Out-Null   # Doesn't always exist, e.g. when no user installed fonts exist yet.
 
 if ($allFontFilesInstalled) {
     Write-Host 'Fira Code is already installed.'
