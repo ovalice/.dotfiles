@@ -20,7 +20,7 @@ $decorativeLine = '----------------------------------'
 
 
 
-Write-Host 'Installing useful tooling.'
+Write-Host 'Installing tooling.'
 Write-Host $decorativeLine
 
 winget install -e --interactive --id Chocolatey.Chocolatey
