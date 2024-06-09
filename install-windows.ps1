@@ -121,7 +121,7 @@ New-Item -ItemType SymbolicLink `
 
 Write-Host "Powershell config has been placed under $PROFILE."
 
-if ((Get-ExecutionPolicy -Scope CurrentUser) -eq 'Restricted') {
+if ((Get-ExecutionPolicy -Scope CurrentUser) -eq 'Undefined') {
     Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy Unrestricted -Force
     Write-Host 'ExecutionPolicy is now set to Unrestricted for the current user.'
 }
