@@ -21,13 +21,11 @@ return {
     },
     {
         'sindrets/diffview.nvim',
+        dependencies = {
+            'nvim-tree/nvim-web-devicons',
+        },
         config = function()
             require('diffview').setup({
-                use_icons = false,
-                signs = {
-                    fold_open = '▼',
-                    fold_closed = '►'
-                },
                 default = {
                     layout = 'diff2_horizontal'
                 },

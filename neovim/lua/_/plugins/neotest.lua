@@ -23,15 +23,6 @@ return {
                     output = 'o',
                 }
             },
-            icons = {
-                failed = 'X',
-                passed = 'OK',
-                skipped = '>>',
-                unknown = '?',
-                watching = '@',
-                running = '/',
-                notify = 'N',
-            },
         })
 
         vim.keymap.set('n', '<leader>tn',  function() neotest.run.run()                        end)
