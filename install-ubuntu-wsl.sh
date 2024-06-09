@@ -19,6 +19,10 @@ decorativeLine='----------------------------------'
 
 
 
+sudo add-apt-repository ppa:neovim-ppa/unstable
+
+
+
 echo 'Updating Linux.'
 echo $decorativeLine
 
@@ -32,15 +36,7 @@ echo ''
 echo 'Installing tooling.'
 echo $decorativeLine
 
-sudo apt install -y curl git build-essential ripgrep fd-find
-
-wget -q https://github.com/neovim/neovim/releases/download/v0.10.0/nvim.appimage
-chmod u+x nvim.appimage && ./nvim.appimage
-rm nvim.appimage
-
-echo ''
-echo 'Finished installing tooling.'
-echo ''
+sudo apt install -y curl git build-essential ripgrep fd-find neovim
 
 
 
