@@ -164,5 +164,18 @@ Write-Host ''
 
 
 
+Write-Host 'Configuring NVM.'
+Write-Host $decorativeLine
+
+nvm install lts
+nvm use lts
+
+Write-Host ''
+Write-Host 'Finished configuring NVM.'
+Write-Host ''
+
+
+
 Write-Host 'Done!'
-Write-Host 'You should probably verify whether some stuff requires antivirus exclusions (OhMyPosh).'
+Write-Host 'Make sure to reload the shell, so that added environment variables are loaded.'
+Write-Host 'You should also probably verify whether some stuff requires antivirus exclusions (OhMyPosh).'
