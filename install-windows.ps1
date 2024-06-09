@@ -1,5 +1,7 @@
 #Requires -RunAsAdministrator
 
+# TODO: Fix issue where Windows Terminal overwrites settings.json after installation. Workaround: "git restore" after script has finished.
+
 $ErrorActionPreference = 'Stop'
 
 Write-Host 'Warning: This script will overwrite existing dotfiles and can delete unrelated files when left in directories for to be installed tools.'
@@ -176,8 +178,6 @@ Write-Host $decorativeLine
 nvm install lts
 nvm use lts
 
-Write-Host ''
-Write-Host 'Finished configuring NVM.'
 Write-Host ''
 
 
