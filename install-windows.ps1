@@ -23,6 +23,7 @@ Write-Host $decorativeLine
 
 winget install -e --id Microsoft.PowerShell
 winget install -e --id=JanDeDobbeleer.OhMyPosh
+winget install -e --id Microsoft.WindowsTerminal
 winget install -e --id=Neovim.Neovim -v '0.10.0'
 winget install -e --id CoreyButler.NVMforWindows     # nvim dependency (LSPs)
 winget install -e --id 7zip.7zip                     # nvim dependency (Mason)
@@ -113,7 +114,23 @@ New-Item -ItemType SymbolicLink `
     -Force `
     | Out-Null
 
-Write-Host "Microsoft.Powershell_profile.ps1 has been placed under $PROFILE."
+Write-Host "Powershell config has been placed under $PROFILE."
+
+Write-Host ''
+
+
+
+Write-Host 'Configuring Windows Terminal.'
+Write-Host $decorativeLine
+
+New-Item -ItemType Directory -Path "$home\repos" -Force | Out-Null   # Default starting directory for Windows Powershell
+New-Item -ItemType SymbolicLink `
+    -Target "$dotfilesPath\windows-terminal\settings.json" `
+    -Path "$home\AppData\Local\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json" `
+    -Force `
+    | Out-Null
+
+Write-Host "Windows Terminal config has been placed under $home\AppData\Local\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json."
 
 Write-Host ''
 
