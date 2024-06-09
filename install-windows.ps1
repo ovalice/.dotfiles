@@ -18,25 +18,29 @@ $decorativeLine = '----------------------------------'
 
 
 
-Write-Host 'Installing/updating useful tooling.'
+Write-Host 'Installing useful tooling.'
 Write-Host $decorativeLine
 
-winget install -e --id Microsoft.PowerShell
-winget install -e --id=JanDeDobbeleer.OhMyPosh
-winget install -e --id Microsoft.WindowsTerminal
-winget install -e --id=Neovim.Neovim -v '0.10.0'
-winget install -e --id CoreyButler.NVMforWindows     # nvim dependency (LSPs)
-winget install -e --id 7zip.7zip                     # nvim dependency (Mason)
-winget install -e --id=BurntSushi.ripgrep.MSVC       # nvim dependency (Telescope)
-winget install -e --id=sharkdp.fd                    # nvim dependency (Telescope)
-
+winget install -e --interactive --id Chocolatey.Chocolatey
 $env:Path = [System.Environment]::GetEnvironmentVariable('Path', 'Machine') + ';' + [System.Environment]::GetEnvironmentVariable('Path', 'User')
 
-nvm install lts
-nvm use lts
+choco install -y powershell-core
+choco install -y oh-my-posh                                          # I'll remove this when I finally move over to Windows 11
+choco install -y microsoft-windows-terminal
+winget install -e --interactive --id Neovim.Neovim -v '0.10.0'
+choco install -y nvm                                                 # nvim dependency (LSPs)
+choco install -y 7zip.install                                        # nvim dependency (Mason)
+choco install -y ripgrep                                             # nvim dependency (Telescope)
+choco install -y fd                                                  # nvim dependency (Telescope)
+choco install -y mingw                                               # nvim dependency (Treesitter)
+choco install -y make                                                # nvim dependency (Telescope-fzf-native)
+
+$env:NVM_HOME = [System.Environment]::GetEnvironmentVariable('NVM_HOME', 'Machine')
+$env:NVM_SYMLINK = [System.Environment]::GetEnvironmentVariable('NVM_SYMLINK', 'Machine')
+$env:Path = [System.Environment]::GetEnvironmentVariable('Path', 'Machine') + ';' + [System.Environment]::GetEnvironmentVariable('Path', 'User')
 
 Write-Host ''
-Write-Host 'Finished installing/updating tooling.'
+Write-Host 'Finished installing tooling.'
 Write-Host ''
 
 
