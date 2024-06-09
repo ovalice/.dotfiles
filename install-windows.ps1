@@ -147,5 +147,15 @@ Write-Host ''
 
 
 
+Write-Host 'Installing .ideavimrc configuration for Rider.'
+Write-Host $decorativeLine
+
+New-Item -ItemType SymbolicLink -Target "$dotfilesPath\jetbrains\rider\.ideavimrc" -Path "$home\.ideavimrc" -Force | Out-Null
+Write-Host ".ideavimrc has been placed under $home\.ideavimrc."
+
+Write-Host ''
+
+
+
 Write-Host 'Done!'
 Write-Host 'You should probably verify whether some stuff requires antivirus exclusions (OhMyPosh).'
