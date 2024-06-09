@@ -30,3 +30,10 @@ If the current execution policy is not set (`Undefined`), make sure to run the i
 ```powershell
 powershell -ExecutionPolicy Unrestricted -File "$home\.dotfiles\install-windows.ps1"
 ```
+
+### Ubuntu (WSL)
+```sh
+git clone https://github.com/ovalice/.dotfiles ~/.dotfiles
+cd ~/.dotfiles
+./install-ubuntu-wsl.sh
+```
