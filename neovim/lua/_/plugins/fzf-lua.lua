@@ -1,3 +1,4 @@
+-- TODO: Fix file icons not rendering properly (half white) during file search
 return {
     {
         'ibhagwan/fzf-lua',
