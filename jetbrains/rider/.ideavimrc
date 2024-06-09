@@ -92,3 +92,11 @@ nnoremap  <leader>ne    :NERDTreeFocus<CR>
 
 map       <leader>qq    <Action>(Exit)
 
+"NERDTree default mappings
+"o   Open files, directories and bookmarks
+"O   Recursively open the selected directory
+"x   Close the current node's parent
+"X   Recursively close all children of the current node
+"P   Jump to the root node
+"p   Jump to the current node's parent
+"q   Close the NERDTree window
