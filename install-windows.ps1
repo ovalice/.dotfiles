@@ -143,7 +143,10 @@ Write-Host ''
 Write-Host 'Configuring Neovim.'
 Write-Host $decorativeLine
 
-Remove-Item -Path "$home\AppData\Local\nvim" -Recurse -Force
+if (Test-Path "$home\AppData\Local\nvim") {
+    Remove-Item -Path "$home\AppData\Local\nvim" -Recurse -Force
+}
+
 New-Item -ItemType SymbolicLink -Target "$dotfilesPath\neovim" -Path "$home\AppData\Local\nvim" -Force | Out-Null
 Write-Host "Neovim config has been placed under $home\AppData\Local\nvim."
 
