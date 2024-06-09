@@ -65,6 +65,7 @@ echo 'Configuring Neovim.'
 echo $decorativeLine
 
 rm -rf "$HOME/.config/nvim"
+mkdir -p "$HOME/.config"
 ln -sf "$dotfilesPath/neovim" "$HOME/.config/nvim"
 echo "Neovim config has been placed under $HOME/.config/nvim."
 
