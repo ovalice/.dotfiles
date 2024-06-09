@@ -54,6 +54,8 @@ $fontsPath = "$home\AppData\Local\Microsoft\Windows\Fonts"
 
 $allFontFilesInstalled = (Get-ChildItem -Path "$fontsPath\FiraCodeNerdFont*").Count -ge 18
 
+New-Item -ItemType Directory -Path $fontsPath -Force | Out-Null   # Doesn't always exist, e.g. when no user installed fonts exist yet.
+
 if ($allFontFilesInstalled) {
     Write-Host 'Fira Code is already installed.'
 }
