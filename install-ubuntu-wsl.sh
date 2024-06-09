@@ -19,7 +19,7 @@ decorativeLine='----------------------------------'
 
 
 
-sudo add-apt-repository ppa:neovim-ppa/unstable
+sudo add-apt-repository -y ppa:neovim-ppa/unstable > /dev/null
 
 
 
@@ -37,6 +37,8 @@ echo 'Installing tooling.'
 echo $decorativeLine
 
 sudo apt install -y curl git build-essential ripgrep fd-find neovim
+
+echo ''
 
 
 
