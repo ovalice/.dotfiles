@@ -5,3 +5,6 @@ $env:POSH_GIT_ENABLED = $true # Make OhMyPosh aware of posh-git
 
 Set-PSReadLineKeyHandler -Key Tab -Function Complete # Bash style autocomplete
 Set-PSReadLineOption -BellStyle None
+
+
+function df { Set-Location -Path "$home\.dotfiles" }
