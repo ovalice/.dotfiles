@@ -73,7 +73,7 @@ map       <leader>dsi   <Action>(StepInto)
 map       <leader>dso   <Action>(StepOver)
 map       <leader>dsr   <Action>(StepOut)
 
-map       <leader>bp    <Action>(BuildCurrentProject)
+map       <leader>bb    <Action>(BuildCurrentProject)
 map       <leader>ba    <Action>(BuildWholeSolutionAction)
 map       <leader>bc    <Action>(CleanSolutionAction)
 
