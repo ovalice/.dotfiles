@@ -30,6 +30,7 @@ Plug 'tpope/vim-commentary'
 Plug 'machakann/vim-highlightedyank'
 
 "" -- Map IDE actions to IdeaVim -- https://jb.gg/abva4t
+
 let mapleader = ' '
 
 nnoremap  <C-d>         <C-d>zz
@@ -57,8 +58,8 @@ vmap      <leader>ca    <Action>(ShowIntentionActions)
 map       gr            <Action>(ShowUsages)
 map       <leader>cc    <Action>(ReformatCode)
 map       <leader>ee    <Action>(ShowErrorDescription)
-map       gn            <Action>(MethodDown)
-map       gp            <Action>(MethodUp)
+map       gj            <Action>(MethodDown)
+map       gk            <Action>(MethodUp)
 
 map       <leader>ff    <Action>(GotoFile)
 map       <leader>fw    <Action>(FindInPath)
