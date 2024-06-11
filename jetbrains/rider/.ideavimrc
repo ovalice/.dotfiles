@@ -42,9 +42,12 @@ nnoremap  n             nzzzv
 nnoremap  <leader>o     o<Esc>k
 nnoremap  <leader>O     O<Esc>j
 
-map       gD            <Action>(GotoDeclarationOnly)
-"Go to definition doesn't seem to exist
-map       gd            <Action>(GotoDeclarationOnly)
+"Not sure what ideavim tries to do with default <C-o> and <C-i> settings, but it seems to jump all over the place
+map       <C-o>         <Action>(Back)
+map       <C-i>         <Action>(Forward)
+
+map       gD            <Action>(GotoDeclaration)
+map       gd            <Action>(GotoDeclaration)
 map       K             <Action>(QuickImplementations)
 map       gi            <Action>(ReSharperGotoImplementation)
 map       <C-h>         <Action>(QuickJavaDoc)
@@ -53,8 +56,8 @@ map       <leader>ca    <Action>(ShowIntentionActions)
 vmap      <leader>ca    <Action>(ShowIntentionActions)
 map       gr            <Action>(ShowUsages)
 map       <leader>cc    <Action>(ReformatCode)
-map       gf            <Action>(MethodDown)
-map       gb            <Action>(MethodUp)
+map       gn            <Action>(MethodDown)
+map       gp            <Action>(MethodUp)
 
 map       <leader>ff    <Action>(GotoFile)
 map       <leader>fw    <Action>(FindInPath)
