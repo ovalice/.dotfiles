@@ -27,8 +27,8 @@ winget install -e --interactive --id Chocolatey.Chocolatey
 $env:Path = [System.Environment]::GetEnvironmentVariable('Path', 'Machine') + ';' + [System.Environment]::GetEnvironmentVariable('Path', 'User')
 
 choco install -y powershell-core
-choco install -y oh-my-posh                                          # I'll remove this when I finally move over to Windows 11
-choco install -y microsoft-windows-terminal
+choco install -y oh-my-posh
+choco install -y microsoft-windows-terminal                          # I'll remove this when I finally move over to Windows 11
 winget install -e --id Neovim.Neovim -v '0.10.0'
 choco install -y nvm                                                 # nvim dependency (LSPs)
 choco install -y 7zip.install                                        # nvim dependency (Mason)
@@ -64,7 +64,7 @@ else {
     try {
         Invoke-WebRequest -Uri 'https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/FiraCode.zip' -OutFile $archivePath
         Expand-Archive -Path $archivePath -DestinationPath $extractPath -Force
-        
+
         Get-ChildItem -Path $extractPath -Filter '*.ttf' | ForEach-Object {
             $destination = Join-Path -Path $fontsPath -ChildPath $_.Name
 
@@ -75,7 +75,7 @@ else {
                 Write-Host "Installed $($_.Name)."
             }
         }
-    
+
         Write-Host ''
         Write-Host 'Fira Code has been fully installed.'
     }
@@ -115,6 +115,14 @@ Write-Host ''
 Write-Host 'Configuring Powershell.'
 Write-Host $decorativeLine
 
+if ((Get-ExecutionPolicy -Scope CurrentUser) -eq 'Undefined') {
+    Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy Unrestricted -Force
+    Write-Host 'ExecutionPolicy is now set to Unrestricted for the current user.'
+}
+
+PowerShellGet\Install-Module posh-git -Scope CurrentUser -Force
+Write-Host 'posh-git has been installed.'
+
 New-Item -ItemType SymbolicLink `
     -Target "$dotfilesPath\powershell\Microsoft.Powershell_profile.ps1" `
     -Path $PROFILE `
@@ -122,11 +130,6 @@ New-Item -ItemType SymbolicLink `
     | Out-Null
 
 Write-Host "Powershell config has been placed under $PROFILE."
-
-if ((Get-ExecutionPolicy -Scope CurrentUser) -eq 'Undefined') {
-    Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy Unrestricted -Force
-    Write-Host 'ExecutionPolicy is now set to Unrestricted for the current user.'
-}
 
 Write-Host ''
 
