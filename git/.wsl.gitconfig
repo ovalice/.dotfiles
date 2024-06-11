@@ -1,0 +1,30 @@
+[include]
+    path = .local.gitconfig
+
+[alias]
+    pf = push --force-with-lease
+
+[merge]
+    tool = nvim
+    conflictstyle = diff3
+
+[mergetool "nvim"]
+    cmd = nvim -d $LOCAL $BASE $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
+
+[core]
+    autoclrf = input
+    editor = nvim
+    excludesFile = ~/.gitignore
+    attributesFile = ~/.gitattributes
+
+[init]
+    defaultBranch = master
+
+[pull]
+    rebase = true
+
+[push]
+    autoSetupRemote = true
+
+[credential]
+    helper = /mnt/c/Program\\ Files/Git/mingw64/bin/git-credential-manager.exe

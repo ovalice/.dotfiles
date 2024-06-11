@@ -53,7 +53,7 @@ localGitConfig="[user]
     email = $gitEmail
 "
 
-ln -sf "$dotfilesPath/git/.gitconfig" "$HOME/.gitconfig"
+ln -sf "$dotfilesPath/git/.wsl.gitconfig" "$HOME/.gitconfig"
 echo ".gitconfig has been placed under $HOME."
 
 echo "$localGitConfig" >"$HOME/.local.gitconfig"
