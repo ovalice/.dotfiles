@@ -13,3 +13,9 @@ vim.keymap.set('n', 'N', 'Nzzzv')
 -- For inserting empty lines without entering insert mode
 vim.keymap.set('n', '<leader>o', 'o<Esc>k')
 vim.keymap.set('n', '<leader>O', 'O<Esc>j')
+
+-- Copy to system clipboard
+vim.keymap.set({"n", "v"}, "<leader>y", [["+y]])
+
+-- Delete to black hole register
+vim.keymap.set({"n", "v"}, "<leader>d", [["_d]])
