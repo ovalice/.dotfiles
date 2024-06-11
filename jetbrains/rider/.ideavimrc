@@ -64,6 +64,7 @@ map       gk            <Action>(MethodUp)
 map       <leader>ff    <Action>(GotoFile)
 map       <leader>fw    <Action>(FindInPath)
 map       <leader>fs    <Action>(GotoSymbol)
+map       <leader>fds   <Action>(FileStructurePopup)
 
 map       <leader>rr    <Action>(Run)
 map       <leader>rs    <Action>(Stop)
