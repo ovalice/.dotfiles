@@ -46,45 +46,68 @@ nnoremap  <leader>y     "+y
 nnoremap  <leader>p     "+p
 
 "Not sure what ideavim tries to do with default <C-o> and <C-i> settings, but it seems to jump all over the place
-map       <C-o>         <Action>(Back)
-map       <C-i>         <Action>(Forward)
+nmap       <C-o>         <Action>(Back)
+nmap       <C-i>         <Action>(Forward)
 
+nmap       gD            <Action>(GotoDeclaration)
+nmap       gd            <Action>(GotoDeclaration)
+nmap       K             <Action>(QuickImplementations)
+nmap       gi            <Action>(ReSharperGotoImplementation)
+nmap       <C-h>         <Action>(QuickJavaDoc)
+nmap       <leader>rn    <Action>(RenameElement)
+nmap       <leader>ca    <Action>(ShowIntentionActions)
+vmap       <leader>ca    <Action>(ShowIntentionActions)
+nmap       gr            <Action>(ShowUsages)
+nmap       <leader>cc    <Action>(ReformatCode)
+vmap       <leader>cc    <Action>(ReformatCode)
+nmap       <leader>ee    <Action>(ShowErrorDescription)
 nmap       <leader>ej    <Action>(GotoNextError)
 nmap       <leader>ek    <Action>(GotoPreviousError)
+nmap       gj            <Action>(MethodDown)
+vmap       gj            <Action>(MethodDown)
+nmap       gk            <Action>(MethodUp)
+vmap       gk            <Action>(MethodUp)
 
-map       <leader>rr    <Action>(Run)
-map       <leader>rs    <Action>(Stop)
+nmap       <leader>ff    <Action>(GotoFile)
+nmap       <leader>fw    <Action>(FindInPath)
+nmap       <leader>fs    <Action>(GotoSymbol)
+nmap       <leader>fds   <Action>(FileStructurePopup)
 
-map       <leader>ds    <Action>(Debug)
-map       <leader>dbt   <Action>(ToggleLineBreakpoint)
-map       <leader>dr    <Action>(Resume)
-map       <leader>dsi   <Action>(StepInto)
-map       <leader>dso   <Action>(StepOver)
-map       <leader>dsr   <Action>(StepOut)
+nmap       <leader>rr    <Action>(Run)
+nmap       <leader>rs    <Action>(Stop)
 
-map       <leader>bb    <Action>(BuildCurrentProject)
-map       <leader>ba    <Action>(BuildWholeSolutionAction)
-map       <leader>bc    <Action>(CleanSolutionAction)
-map       <leader>bs    <Action>(CancelBuildAction)
+"I don't really use these at the moments, but I might at some point. Disabling for now to prevent conflict with <leader>d
+"nmap       <leader>ds    <Action>(Debug)
+"nmap       <leader>dbt   <Action>(ToggleLineBreakpoint)
+"nmap       <leader>dr    <Action>(Resume)
+"nmap       <leader>dsi   <Action>(StepInto)
+"nmap       <leader>dso   <Action>(StepOver)
+"nmap       <leader>dsr   <Action>(StepOut)
 
-map       <leader>tn    <Action>(RiderUnitTestRunContextAction)
-map       <leader>tdn   <Action>(RiderUnitTestDebugContextAction)
-map       <leader>ts    <Action>(RiderUnitTestSessionAbortAction)
-map       <leader>tf    <Action>(RiderUnitTestSessionRerunFailedTestsAction)
-map       <leader>ta    <Action>(RiderUnitTestRunSolutionAction)
+nmap       <leader>bb    <Action>(BuildCurrentProject)
+nmap       <leader>ba    <Action>(BuildWholeSolutionAction)
+nmap       <leader>bc    <Action>(CleanSolutionAction)
+nmap       <leader>bs    <Action>(CancelBuildAction)
+
+nmap       <leader>tn    <Action>(RiderUnitTestRunContextAction)
+nmap       <leader>tdn   <Action>(RiderUnitTestDebugContextAction)
+nmap       <leader>ts    <Action>(RiderUnitTestSessionAbortAction)
+nmap       <leader>tf    <Action>(RiderUnitTestSessionRerunFailedTestsAction)
+nmap       <leader>ta    <Action>(RiderUnitTestRunSolutionAction)
 
 "TODO: How much extra does this do compared to HideActiveWindow?
-map       <leader>;     <Action>(HideAllWindows)
-map       <leader>xq    <Action>(ActivateProblemsViewToolWindow)
-map       <leader>ttw   <Action>(ActivateUnitTestsToolWindow)
-map       <leader>wt    <Action>(ActivateTerminalToolWindow)
-map       <leader>wb    <Action>(ActivateBuildToolWindow)
-map       <leader>wp    <Action>(ActivateNuGetToolWindow)
-nnoremap  <leader>nt    :NERDTreeToggle<CR>
-nnoremap  <leader>ne    :NERDTreeFocus<CR>
+nmap       <leader>;     <Action>(HideAllWindows)
+nmap       <leader>xq    <Action>(ActivateProblemsViewToolWindow)
+nmap       <leader>ttw   <Action>(ActivateUnitTestsToolWindow)
+nmap       <leader>wt    <Action>(ActivateTerminalToolWindow)
+nmap       <leader>wb    <Action>(ActivateBuildToolWindow)
+nmap       <leader>wp    <Action>(ActivateNuGetToolWindow)
+nnoremap   <leader>nt    :NERDTreeToggle<CR>
+nnoremap   <leader>ne    :NERDTreeFocus<CR>
 
-map       <leader>qq    <Action>(Exit)
+nmap       <leader>qq    <Action>(Exit)
 
+let g:NERDTreeMapPreview = 't'
 "NERDTree default mappings
 "o   Open files, directories and bookmarks
 "O   Recursively open the selected directory
