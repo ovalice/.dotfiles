@@ -12,7 +12,10 @@ return {
     {
         'windwp/nvim-autopairs',
         event = { 'InsertEnter' },
-        config = true
+        config = true,
+        opts = {
+            disable_filetype = { 'ps1' }
+        }
     },
     {
         'hrsh7th/nvim-cmp',
@@ -27,7 +30,7 @@ return {
         },
         config = function()
             local cmp = require('cmp')
-    
+
             cmp.setup({
                 snippet = {
                     expand = function(args)
@@ -52,14 +55,14 @@ return {
                     completeopt = 'menu,menuone' -- Automatically select first item in completion list
                 }
             })
-    
+
             cmp.setup.cmdline({ '/', '?' }, {
                 mapping = cmp.mapping.preset.cmdline(),
                 sources = {
                     { name = 'buffer' }
                 }
             })
-    
+
             cmp.setup.cmdline(':', {
                 mapping = cmp.mapping.preset.cmdline(),
                 sources = cmp.config.sources({
@@ -73,7 +76,7 @@ return {
                     }
                 })
             })
-    
+
             local cmp_autopairs = require('nvim-autopairs.completion.cmp')
             cmp.event:on(
                 'confirm_done',

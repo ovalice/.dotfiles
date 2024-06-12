@@ -85,7 +85,9 @@ return {
                     end,
 
                     ['powershell_es'] = function()
-                        shell = 'powershell.exe'
+                        require('lspconfig').powershell_es.setup({
+                            shell = 'powershell.exe',
+                        })
                     end
                 }
             })
