@@ -6,7 +6,7 @@
 set number
 set relativenumber
 
-set nohlsearch
+set hlsearch
 set incsearch
 
 set nowrap
