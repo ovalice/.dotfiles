@@ -42,8 +42,12 @@ nnoremap  <leader>o     o<Esc>k
 nnoremap  <leader>O     O<Esc>j
 
 nnoremap  <leader>d     "_d
+vnoremap  <leader>d     "_d
 nnoremap  <leader>y     "+y
+vnoremap  <leader>y     "+y
 nnoremap  <leader>p     "+p
+vnoremap  <leader>p     "+p
+
 
 "Not sure what ideavim tries to do with default <C-o> and <C-i> settings, but it seems to jump all over the place
 nmap       <C-o>         <Action>(Back)
