@@ -105,11 +105,9 @@ nmap       <leader>ta    <Action>(RiderUnitTestRunSolutionAction)
 nmap       <leader>;     <Action>(HideAllWindows)
 nmap       <leader>xq    <Action>(ActivateProblemsViewToolWindow)
 nmap       <leader>ttw   <Action>(ActivateUnitTestsToolWindow)
-nmap       <leader>wt    <Action>(ActivateTerminalToolWindow)
-nmap       <leader>wb    <Action>(ActivateBuildToolWindow)
 nmap       <leader>wp    <Action>(ActivateNuGetToolWindow)
-nnoremap   <leader>nt    :NERDTreeToggle<CR>
-nnoremap   <leader>ne    :NERDTreeFocus<CR>
+
+imap       <C-y>         <Action>(EditorChooseLookupItem)
 
 nmap       <leader>qq    <Action>(Exit)
 
