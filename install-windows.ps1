@@ -29,6 +29,7 @@ $env:Path = [System.Environment]::GetEnvironmentVariable('Path', 'Machine') + ';
 choco install -y powershell-core
 choco install -y oh-my-posh
 choco install -y microsoft-windows-terminal                          # I'll remove this when I finally move over to Windows 11
+choco install -y bat
 winget install -e --id Neovim.Neovim -v '0.10.0'
 choco install -y nvm                                                 # nvim dependency (LSPs)
 choco install -y 7zip.install                                        # nvim dependency (Mason)
