@@ -98,6 +98,7 @@ nmap       <leader>tn    <Action>(RiderUnitTestRunContextAction)
 nmap       <leader>tdn   <Action>(RiderUnitTestDebugContextAction)
 nmap       <leader>ts    <Action>(RiderUnitTestSessionAbortAction)
 nmap       <leader>tf    <Action>(RiderUnitTestSessionRerunFailedTestsAction)
+nmap       <leader>tl    <Action>(RiderUnitTestRepeatPreviousRunAction)
 nmap       <leader>ta    <Action>(RiderUnitTestRunSolutionAction)
 
 "TODO: How much extra does this do compared to HideActiveWindow?
