@@ -111,12 +111,13 @@ imap       <C-y>         <Action>(EditorChooseLookupItem)
 
 nmap       <leader>qq    <Action>(Exit)
 
+nmap       <leader>nt    :NERDTreeToggle<CR>
+nmap       <leader>ne    :NERDTreeFocus<CR>
+
 let g:NERDTreeMapPreview = 't'
-"NERDTree default mappings
-"o   Open files, directories and bookmarks
-"O   Recursively open the selected directory
-"x   Close the current node's parent
-"X   Recursively close all children of the current node
-"P   Jump to the root node
-"p   Jump to the current node's parent
-"q   Close the NERDTree window
+let g:NERDTreeMapOpenVSplit = 'v'
+
+
+
+"Things I would still like to add, but ideavim doesn't support yet:
+"- <Action>(ReformatCode) and <Action>(OptimizeImports) mapped to the same key
