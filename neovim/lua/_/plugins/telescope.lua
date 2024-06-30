@@ -11,7 +11,13 @@ return {
         }
     },
     config = function()
-        require('telescope').setup()
+        require('telescope').setup({
+            defaults = {
+                path_display = {
+                    'filename_first',
+                }
+            }
+        })
         require('telescope').load_extension('fzf')
 
         local builtin = require('telescope.builtin')
