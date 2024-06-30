@@ -59,31 +59,6 @@ return {
                 --     }
                 -- }
             })
-
-            vim.keymap.set('n', '<leader>gdt', function()
-                if vim.bo.ft == 'DiffviewFiles' then
-                    vim.cmd('DiffviewClose')
-                else
-                    vim.cmd('DiffviewOpen')
-                end
-            end)
-
-            vim.keymap.set('n', '<leader>gdr', function()
-                if vim.bo.ft == 'DiffviewFiles' then
-                    vim.cmd('DiffviewClose')
-                end
-
-                local rev = vim.fn.input('Revision > ')
-                vim.cmd('DiffviewOpen ' .. rev)
-            end)
-
-            vim.keymap.set('n', '<leader>gfh', function()
-                if vim.bo.ft == 'DiffviewFileHistory' then
-                    vim.cmd('DiffviewClose')
-                else
-                    vim.cmd('DiffviewFileHistory')
-                end
-            end)
         end
     }
 }
