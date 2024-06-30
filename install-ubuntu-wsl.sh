@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# TODO: Install fzf, install git-delta
+
 set -e
 
 echo 'Warning: This script will overwrite existing dotfiles and can delete unrelated files when left in directories for to be installed tools.'
@@ -32,7 +34,10 @@ echo ''
 echo 'Installing tooling.'
 echo $decorativeLine
 
-sudo apt install -y curl git build-essential ripgrep fd-find
+sudo apt install -y curl git build-essential ripgrep fd-find bat
+
+# Fix 'bat' name clash with other Debian package
+ln -s /usr/bin/batcat /usr/bin/bat
 
 echo ''
 

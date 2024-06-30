@@ -1,21 +1,12 @@
 [include]
     path = .local.gitconfig
 
-[alias]
-    pf = push --force-with-lease
-
-[merge]
-    tool = nvim
-    conflictstyle = diff3
-
-[mergetool "nvim"]
-    cmd = nvim -d $LOCAL $BASE $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
-
 [core]
     autoclrf = input
     editor = nvim
     excludesFile = ~/.gitignore
     attributesFile = ~/.gitattributes
+    pager = delta
 
 [init]
     defaultBranch = master
@@ -25,6 +16,24 @@
 
 [push]
     autoSetupRemote = true
+
+[merge]
+    tool = nvim
+    conflictstyle = diff3
+
+[mergetool "nvim"]
+    cmd = nvim -d $LOCAL $BASE $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
+
+[alias]
+    pf = push --force-with-lease
+
+[interactive]
+    diffFilter = delta --color-only
+
+[delta]
+    navigate = true
+    side-by-side = true
+    syntax-theme = gruvbox-dark
 
 [credential]
     helper = /mnt/c/Program\\ Files/Git/mingw64/bin/git-credential-manager.exe
