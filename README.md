@@ -21,7 +21,7 @@ You should probably run the script with Conhost instead of Windows Terminal, to 
 # 2. Enter 'conhost.exe powershell.exe'
 # 3. Press Ctrl + Shift + Enter
 
-git clone https://github.com/ovalice/.dotfiles "$home\.dotfiles"
+git clone https://github.com/tenstan/.dotfiles "$home\.dotfiles"
 & "$home\.dotfiles\install-windows.ps1"
 ```
 
@@ -33,7 +33,7 @@ powershell -ExecutionPolicy Unrestricted -File "$home\.dotfiles\install-windows.
 
 ### Ubuntu (WSL)
 ```sh
-git clone https://github.com/ovalice/.dotfiles ~/.dotfiles
+git clone https://github.com/tenstan/.dotfiles ~/.dotfiles
 cd ~/.dotfiles
 ./install-ubuntu-wsl.sh
 ```
