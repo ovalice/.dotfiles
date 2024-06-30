@@ -20,3 +20,6 @@ vim.keymap.set({'n', 'v'}, '<leader>d', [["_d]])
 
 -- Paste inline
 vim.keymap.set('n', '<leader>p', 'pkJ')
+
+-- Close all panes except currently focused one
+vim.keymap.set('n', '<leader>;', '<cmd>only<CR>')
